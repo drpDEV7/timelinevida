@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #FF6B00 #121212;
+}
+
+body {
+  @apply bg-timeline-dark text-white m-0 p-0 font-body;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-timeline-darker;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-timeline-orange rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-timeline-orange-light;
+}
+
+@layer components {
+  .timeline-container {
+    @apply relative min-h-screen w-full overflow-hidden py-16;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-tech font-bold text-timeline-orange mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-xl md:text-2xl font-tech font-medium text-white mb-3;
+  }
+  
+  .section-text {
+    @apply text-base md:text-lg text-gray-300 mb-4 leading-relaxed;
+  }
+  
+  .timeline-card {
+    @apply bg-timeline-gray p-6 rounded-lg border border-timeline-gray-light shadow-timeline 
+    hover:shadow-timeline-hover transition-all duration-300 relative z-10 backdrop-blur-sm;
+  }
+  
+  .progress-line {
+    @apply absolute left-1/2 w-1 bg-timeline-orange-dark z-0 rounded-full;
+    transform: translateX(-50%);
+  }
+  
+  .timeline-dot {
+    @apply absolute w-5 h-5 rounded-full bg-timeline-orange z-10 border-2 border-white
+    left-1/2 -translate-x-1/2;
+  }
+
+  .tech-badge {
+    @apply inline-block bg-timeline-orange/20 text-timeline-orange-light px-3 py-1 
+    rounded-full text-sm font-medium mr-2 mb-2 border border-timeline-orange/30;
+  }
+}
